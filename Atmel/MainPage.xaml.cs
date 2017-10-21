@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Bluetooth;
 using Windows.Devices.Bluetooth.GenericAttributeProfile;
+using Atmel.Models;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -216,8 +217,8 @@ namespace Atmel
             }
             foreach (var item in devices)
             {
-                var result = String.Format("Id: {0}\nName: {1}\nIsEnabled: {2}\nIsPaired: {3}", item.Id, item.Name, item.IsEnabled, item.Pairing.IsPaired);
-                Debug.WriteLine(result);
+                var result = new BluetoothLEDeviceInfoModel(item);
+                Debug.WriteLine(result.ToString());
             }
         }
     }
