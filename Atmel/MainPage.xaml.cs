@@ -133,13 +133,14 @@ namespace Atmel
             // Query for extra properties you want returned
             string[] requestedProperties = { "System.Devices.Aep.DeviceAddress", "System.Devices.Aep.IsConnected", "System.Devices.Aep.Bluetooth.Le.IsConnectable" };
 
-            string aqsAllBluetoothLEDevices = "(System.Devices.Aep.ProtocolId:=\"{bb7bb05e-5972-42b5-94fc-76eaa7084d49}\")";
+            //string aqsAllBluetoothLEDevices = "(System.Devices.Aep.ProtocolId:=\"{bb7bb05e-5972-42b5-94fc-76eaa7084d49}\")";
+            string aqsAllBluetoothLEDevices = "(System.Devices.Aep.ProtocolId:=\"{E0CBF06C-CD8B-4647-BB8A-263B43F0F974}\")";
 
             DeviceWatcher deviceWatcher;
-                        //DeviceInformation.CreateWatcher(
-                        //        BluetoothLEDevice.GetDeviceSelectorFromPairingState(false),
-                        //        requestedProperties,
-                        //        DeviceInformationKind.AssociationEndpoint);
+            //DeviceInformation.CreateWatcher(
+            //        BluetoothLEDevice.GetDeviceSelectorFromPairingState(false),
+            //        requestedProperties,
+            //        DeviceInformationKind.AssociationEndpoint);
 
             deviceWatcher = DeviceInformation.CreateWatcher(
                 aqsAllBluetoothLEDevices,
@@ -185,7 +186,7 @@ namespace Atmel
         {
             ConnectDevice(args);
 
-            Debug.WriteLine(String.Format("Dodano urzadzenie: {0}",args.Id));
+            Debug.WriteLine(String.Format("Dodano urzadzenie: {0}", args.Id));
         }
 
         async void ConnectDevice(DeviceInformation deviceInfo)
@@ -200,6 +201,23 @@ namespace Atmel
             {
                 var services = result.Services;
                 // ...
+            }
+        }
+
+        private async void btnBlueLE02_Click(object sender, RoutedEventArgs e)
+        {
+            var selector = BluetoothDevice.GetDeviceSelector();
+            //var con = selector.Where
+            Debug.WriteLine(selector);
+            var devices = await DeviceInformation.FindAllAsync(selector);
+            if (devices.Count > 0)
+            {
+                Debug.WriteLine("Found {0} devices", devices.Count);
+            }
+            foreach (var item in devices)
+            {
+                var result = String.Format("Id: {0}\nName: {1}\nIsEnabled: {2}\nIsPaired: {3}", item.Id, item.Name, item.IsEnabled, item.Pairing.IsPaired);
+                Debug.WriteLine(result);
             }
         }
     }

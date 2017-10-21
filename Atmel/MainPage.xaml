@@ -41,6 +41,11 @@
             FontSize="20"
             Content="BT LE 01" 
             IsEnabled="True" />
+            <Button Name="btnBlueLE02" 
+            Click="btnBlueLE02_Click"
+            FontSize="20"
+            Content="BT LE 02" 
+            IsEnabled="True" />
         </StackPanel>
     </Grid>
 </Page>
