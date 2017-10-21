@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atmel._93C56.Library
+namespace Atmel.Microchip23LC1024
 {
     public class Class1
     {

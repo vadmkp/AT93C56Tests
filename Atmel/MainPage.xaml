@@ -8,6 +8,39 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <TextBlock TextWrapping="WrapWholeWords">
+                Aplkacja uzywa bluetooth i cos robi.
+            </TextBlock>
+            <Button Name="btnList" 
+            Click="btnList_Click" 
+            FontSize="20" 
+            Content="List" />
+            <Button Name="btnStart"
+            Click="btnStart_Click" 
+            FontSize ="20" 
+            Content="Start" />
+            <Button Name="btnOn"
+            Click="btnOn_Click" 
+            FontSize="20" 
+            Content="Led On" 
+            IsEnabled="False" />
+            <Button Name="btnOff" 
+            Click="btnOff_Click"
+            FontSize="20"
+            Content="Led Off" 
+            IsEnabled="False" />
+            <Button Name="btnSerial01" 
+            Click="btnSerial01_Click"
+            FontSize="20"
+            Content="Serial 01" 
+            IsEnabled="True" />
 
+            <Button Name="btnBlueLE01" 
+            Click="btnBlueLE01_Click"
+            FontSize="20"
+            Content="BT LE 01" 
+            IsEnabled="True" />
+        </StackPanel>
     </Grid>
 </Page>
