@@ -194,7 +194,9 @@ Reference-style:
 [Google](https://google.com" target="_blank)
 
 
-<a href="http://example.com/" target="_blank"><img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon484.png" /></a>
+<a href="http://example.com/" target="_blank">
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="HTML tutorial">
+</a>
 
 
 
