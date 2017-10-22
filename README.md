@@ -168,6 +168,19 @@ Markdown: ![Benjamin Bannekat](http://octodex.github.com/images/foundingfather_v
 
 
 
+```
+Here's our logo (hover to see the title text):
+
+Inline-style: 
+![Logo PNG not found ](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon484.png "Logo Title Text 1")
+
+Reference-style: 
+![To powinno byc logo][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+```
+
 Here's our logo (hover to see the title text):
 
 Inline-style: 
