@@ -1,4 +1,5 @@
 ﻿using Atmel.Serial;
+using Atmel.Silnik;
 using Microsoft.Maker.RemoteWiring;
 using Microsoft.Maker.Serial;
 using System;
@@ -220,6 +221,29 @@ namespace Atmel
                 var result = new BluetoothLEDeviceInfoModel(item);
                 Debug.WriteLine(result.ToString());
             }
+        }
+
+
+        private void StartServer()
+        {
+            ServerRFCOMM _sr = new ServerRFCOMM();
+            _sr.Initialize();
+        }
+
+        private void StartClient()
+        {
+            ClientRFCOMM _cl = new ClientRFCOMM();
+            _cl.Initialize();
+        }
+
+        private void BtnBlueLE03_Click(object sender, RoutedEventArgs e)
+        {
+            StartServer();
+        }
+
+        private void BtnBlueLE04_Click(object sender, RoutedEventArgs e)
+        {
+            StartClient();
         }
     }
 }

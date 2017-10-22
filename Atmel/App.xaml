@@ -5,4 +5,21 @@
     xmlns:local="using:Atmel"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <Style x:Key="BtnMaly" TargetType="Button">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style x:Key="BtnDuzy" TargetType="Button">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Background" Value="LightGreen" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+    </Application.Resources>
+
 </Application>

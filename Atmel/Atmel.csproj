@@ -100,6 +100,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serial\Constants.cs" />
     <Compile Include="Serial\DeviceListEntry.cs" />
+    <Compile Include="Silnik\ClientRFCOMM.cs" />
+    <Compile Include="Silnik\ServerRFCOMM.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

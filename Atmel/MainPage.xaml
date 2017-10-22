@@ -8,44 +8,67 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock TextWrapping="WrapWholeWords">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="629*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" TextWrapping="WrapWholeWords">
                 Aplkacja uzywa bluetooth i cos robi.
-            </TextBlock>
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+
             <Button Name="btnList" 
-            Click="btnList_Click" 
-            FontSize="20" 
-            Content="List" />
+                    Click="btnList_Click" 
+                    Content="List" 
+                    Style="{StaticResource BtnMaly}"/>
             <Button Name="btnStart"
-            Click="btnStart_Click" 
-            FontSize ="20" 
-            Content="Start" />
+                    Click="btnStart_Click" 
+                    Content="Start" 
+                    Style="{StaticResource BtnMaly}"/>
             <Button Name="btnOn"
-            Click="btnOn_Click" 
-            FontSize="20" 
-            Content="Led On" 
-            IsEnabled="False" />
+                    Click="btnOn_Click" 
+                    Content="Led On" 
+                    IsEnabled="False" 
+                    Style="{StaticResource BtnMaly}"/>
+
             <Button Name="btnOff" 
-            Click="btnOff_Click"
-            FontSize="20"
-            Content="Led Off" 
-            IsEnabled="False" />
+                    Click="btnOff_Click"
+                    Content="Led Off" 
+                    IsEnabled="False" 
+                    Style="{StaticResource BtnMaly}"/>
+
             <Button Name="btnSerial01" 
-            Click="btnSerial01_Click"
-            FontSize="20"
-            Content="Serial 01" 
-            IsEnabled="True" />
+                    Click="btnSerial01_Click"
+                    Content="Serial 01" 
+                    IsEnabled="True" 
+                    Style="{StaticResource BtnMaly}"/>
 
             <Button Name="btnBlueLE01" 
-            Click="btnBlueLE01_Click"
-            FontSize="20"
-            Content="BT LE 01" 
-            IsEnabled="True" />
+                    Click="btnBlueLE01_Click"
+                    Content="BT LE 01" 
+                    IsEnabled="True"
+                    Style="{StaticResource BtnMaly}"/>
+
             <Button Name="btnBlueLE02" 
-            Click="btnBlueLE02_Click"
-            FontSize="20"
-            Content="BT LE 02" 
-            IsEnabled="True" />
+                    Click="btnBlueLE02_Click"
+                    Content="BT LE 02" 
+                    IsEnabled="True"
+                    Style="{StaticResource BtnMaly}"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button Name="BtnBlueLE03"
+                    Click="BtnBlueLE03_Click"
+                    Content="BT LE 03  - Server" 
+                    IsEnabled="True" 
+                    Style="{StaticResource BtnDuzy}" />
+            <Button Name="BtnBlueLE04"
+                    Click="BtnBlueLE04_Click"
+                    Content="BT LE 03  - Client" 
+                    IsEnabled="True" 
+                    Style="{StaticResource BtnDuzy}" />
         </StackPanel>
     </Grid>
 </Page>
