@@ -399,3 +399,7 @@ alt="Click here to open video" width="240" height="180" border="10" /></a>
 
 [![Click here to open video](https://img.youtube.com/vi/3zoy1deTVu0/0.jpg)](https://youtu.be/3zoy1deTVu0)
 
+
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=3zoy1deTVu0
+" target="_blank"><img src="https://img.youtube.com/vi/3zoy1deTVu0/2.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
