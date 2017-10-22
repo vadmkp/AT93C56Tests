@@ -191,14 +191,9 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
-[![Logo PNG not found ](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Logo Title Text 1")](https://www.google.com "Google's Homepage"){ target="_blank" }
-
-<a href="http://example.com/" target="_blank">
-<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="HTML tutorial">
-</a>
-
-
-
+Link with image:
+[![Logo PNG not found](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Google's Homepage")](https://www.google.com)
+*Unfortunetly can not be open in new tab*
 
 
 
@@ -394,26 +389,10 @@ This line is only separated by a single newline, so it's a separate line in the 
 
 ## **YouTube Videos**
 
-<a href="https://youtu.be/3zoy1deTVu0
-" target="_blank"><img src="https://img.youtube.com/vi/3zoy1deTVu0/0.jpg" 
-alt="Click here to open video" width="240" height="180" border="10" /></a>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=3zoy1deTVu0
+" target="_blank"><img src="http://img.youtube.com/vi/3zoy1deTVu0/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 **OR**
 
-[![Click here to open video](https://img.youtube.com/vi/3zoy1deTVu0/0.jpg)](https://youtu.be/3zoy1deTVu0)
-
-
-<a href="https://www.youtube.com/watch?feature=player_embedded&v=3zoy1deTVu0
-" target="_blank"><img src="https://img.youtube.com/vi/3zoy1deTVu0/2.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
-
-
-<iframe width="420" height="315"
-src="https://www.youtube.com/embed/XGSy3_Czz8k">
-</iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ImVK5cGVrpQ" frameborder="0" allowfullscreen></iframe>
-
-***
-
-[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME" target="_blank")
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/3zoy1deTVu0/0.jpg)](http://www.youtube.com/watch?v=3zoy1deTVu0)
