@@ -193,6 +193,7 @@ Reference-style:
 
 Link with image:
 [![Logo PNG not found](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Google's Homepage")](https://www.google.com)
+
 *Unfortunetly can not be open in new tab*
 
 
