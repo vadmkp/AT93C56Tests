@@ -392,14 +392,10 @@ This line is only separated by a single newline, so it's a separate line in the 
 ## **YouTube Videos**
 
 <a href="https://youtu.be/3zoy1deTVu0
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+" target="_blank"><img src="https://img.youtube.com/vi/3zoy1deTVu0/0.jpg" 
+alt="Click here to open video" width="240" height="180" border="10" /></a>
 
 **OR**
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/3zoy1deTVu0)
-
-https://www.youtube.com/watch?v=3zoy1deTVu0
-
-https://youtu.be/3zoy1deTVu0
+[![Click here to open video](https://img.youtube.com/vi/3zoy1deTVu0/0.jpg)](https://youtu.be/3zoy1deTVu0)
 
