@@ -191,7 +191,7 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
-[![Logo PNG not found ](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Logo Title Text 1")](https://www.google.com "Google's Homepage")
+[![Logo PNG not found ](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Logo Title Text 1")](https://www.google.com "Google's Homepage"){ target="_blank" }
 
 <a href="http://example.com/" target="_blank">
 <img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="HTML tutorial">
