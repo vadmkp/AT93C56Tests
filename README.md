@@ -1,21 +1,45 @@
 # AT93C56
 
 Projekt testowy. Nauka GitHub-a.
---- 
-
-___
-+++
 ***
-**referfer**
+## **Headers**
 
-*frfrfr*
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
 
-***fferferfer***
 
-****ferferferf****
+***
+## **Bold**
 
-*** 
-**js** code
+**BOLD**
+
+***
+
+## **Italic**
+
+*Italic*
+
+***
+
+## **Bold + Italic**
+
+***Bold & Italic***
+
+***
+
+## **Strikethrough**
+
+~~Strikethrough~~
+
+
+
+***
+ 
+## **js** code
 ```js
 function areEqual(a, b) {
 	if (a === b) {
@@ -24,7 +48,8 @@ function areEqual(a, b) {
 }
 ```
 ***
-**c** code
+
+## **c** code
 ```c
 public BluetoothLEDeviceInfoModel(DeviceInformation deviceInformation)
 {
@@ -34,8 +59,9 @@ public BluetoothLEDeviceInfoModel(DeviceInformation deviceInformation)
     this.IsPaired = deviceInformation.Pairing.IsPaired;
 }
 ```
---- 
-**JavaScript** code
+***
+ 
+## **JavaScript** code
 ```JavaScript
 var arr = [ "one", "two", "three", "four", "five" ];
 var obj = { one: 1, two: 2, three: 3, four: 4, five: 5 };
@@ -52,8 +78,9 @@ jQuery.each( obj, function( i, val ) {
 });
 ```
 
----
-**csharp** code
+***
+## **csharp** code
+
 ```csharp
     using (var client = new HttpClient())
     {
@@ -67,18 +94,35 @@ jQuery.each( obj, function( i, val ) {
     }
 ```
 
-*hwfkjwhfkw*
+***
+
+## **Links**
+
+[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+
+[I'm a reference-style link][Arbitrary case-insensitive reference text]
+
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself].
+
+URLs and URLs in angle brackets will automatically get turned into links. 
+http://www.example.com or <http://www.example.com> and sometimes 
+example.com (but not on Github, for example).
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
 
 
-*iouiouio*
-
- Here's [a link to something else][another place].
-     Here's [yet another link][another-link].
-     And now back to [the first link][another place].
-
-     [another place]: www.github.com
-     [another-link]: www.google.com
-
+***
+## **Images**
 Markdown: ![Benjamin Bannekat](http://octodex.github.com/images/foundingfather_v2.png).
 
 
@@ -128,7 +172,7 @@ Markdown: ![Benjamin Bannekat](http://octodex.github.com/images/foundingfather_v
 
 
 ***
-**Blockquotes**
+## **Blockquotes**
 
 > "In a few moments he was barefoot, his stockings folded in his pockets and his
   canvas shoes dangling by their knotted laces over his shoulders and, picking a
@@ -136,7 +180,7 @@ Markdown: ![Benjamin Bannekat](http://octodex.github.com/images/foundingfather_v
   the slope of the breakwater."
 
 ***
-**Lists**
+## **Lists**
 
 * Milk
 * Eggs
@@ -163,23 +207,32 @@ Markdown: ![Benjamin Bannekat](http://octodex.github.com/images/foundingfather_v
 
 1. Crack three eggs over a bowl.
 
- Now, you're going to want to crack the eggs in such a way that you don't make a mess.
+	Now, you're going to want to crack the eggs in such a way that you don't make a mess.
 
- If you _do_ make a mess, use a towel to clean it up!
+	If you _do_ make a mess, use a towel to clean it up!
 
 2. Pour a gallon of milk into the bowl.
 
- Basically, take the same guidance as above: don't be messy, but if you are, clean it up!
+	Basically, take the same guidance as above: don't be messy, but if you are, clean it up!
 
 3. Rub the salmon vigorously with butter.
 
-   By "vigorous," we mean a strictly vertical motion. Julia Child once quipped:
+	By "vigorous," we mean a strictly vertical motion. Julia Child once quipped:
    > Up and down and all around, that's how butter on salmon goes.
 4. Drop the salmon into the egg-milk bowl.
 
    Here are some techniques on salmon-dropping:
+    * Make sure no trout or children are present
+    * Use both hands
+    * Always have a towel nearby in case of messes
 
-   * Make sure no trout or children are present
-   * Use both hands
-   * Always have a towel nearby in case of messes
+***
+# **Paragraphs**
 
+Do I contradict myself?
+
+Very well then I contradict myself,
+
+(I am large, I contain multitudes.)
+
+	
