@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atmel", "Atmel\Atmel.csproj", "{173D4012-013D-43EB-82B1-BC78153E717A}"
 EndProject
@@ -16,6 +16,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arduino Solutions", "Arduino Solutions", "{28129BE4-64DD-4AA0-A2E1-82D23F8EF977}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atmel.Microchip23LC1024", "Atmel.Microchip23LC1024\Atmel.Microchip23LC1024.csproj", "{F9EBE355-616D-46E8-A430-24BACC991F5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D492A394-235F-4EBF-89B9-64258BEBAE36}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,5 +122,8 @@ Global
 		{8973A255-1FCB-450D-9F93-7A61A58ADCB1} = {F0CE3A52-BA3B-41EC-92E0-F0EEE64FC4BB}
 		{E0F463B8-9232-4DF4-8E76-A3B65F5D0B3E} = {F0CE3A52-BA3B-41EC-92E0-F0EEE64FC4BB}
 		{F9EBE355-616D-46E8-A430-24BACC991F5F} = {F0CE3A52-BA3B-41EC-92E0-F0EEE64FC4BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5B37302-7727-4D92-8FCE-9498223888F0}
 	EndGlobalSection
 EndGlobal
