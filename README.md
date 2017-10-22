@@ -92,7 +92,7 @@ void loop() {
 
 ***
 
-## **python**
+## **python** code
 
 ```python
 s = "Python syntax highlighting"
