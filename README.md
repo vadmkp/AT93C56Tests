@@ -139,6 +139,10 @@ jQuery.each( obj, function( i, val ) {
 
 ## **Links**
 
+```
+[I'm a relative reference to a repository file LICENCE](../../blob/master/LICENSE)
+```
+
 [I'm an inline-style link](https://www.google.com)
 
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
