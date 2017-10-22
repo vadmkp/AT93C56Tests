@@ -191,10 +191,10 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
+[Google](https://google.com" target="_blank)
 
 
-
-
+<a href="http://example.com/" target="_blank"><img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon484.png" /></a>
 
 
 
@@ -413,4 +413,4 @@ src="https://www.youtube.com/embed/XGSy3_Czz8k">
 
 ***
 
-[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME"){:target="_blank"}
+[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME" target="_blank")
