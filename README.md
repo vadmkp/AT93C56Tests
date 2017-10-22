@@ -145,7 +145,7 @@ jQuery.each( obj, function( i, val ) {
 
 [I'm a reference-style link][Arbitrary case-insensitive reference text]
 
-[I'm a relative reference to a repository file](../blob/master/LICENSE)
+[I'm a relative reference to a repository file LICENCE](./blob/master/LICENSE)
 
 [You can use numbers for reference-style link definitions][1]
 
@@ -194,7 +194,7 @@ Reference-style:
 Link with image:
 [![Logo PNG not found](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Google's Homepage")](https://www.google.com)
 
-*Unfortunetly can not be open in new tab*
+*Unfortunetly can not be open in new tab. Markdown not suport it.*
 
 
 
