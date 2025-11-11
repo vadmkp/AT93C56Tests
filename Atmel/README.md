@@ -1,8 +1,447 @@
-﻿# ATMEL Project
+# Atmel UWP Application
 
-## To jest przykladowy tekst. Tu jeszcze nie ma opisu bo kod jest w trakcie rzezbienia. Raczej nic ciekawego tu nie znajdzie drogi uzytkowniku.
----
-### Usze sie obslugi Github-a aby zrobic jakis projekt portfolio.
----
-Tutaj ma byc zwykly tekst.
+> **Windows Universal Platform application** do zdalnego sterowania urządzeniami Arduino przez Bluetooth.
 
+![Platform](https://img.shields.io/badge/platform-UWP-blue.svg)
+![Language](https://img.shields.io/badge/language-C%23-brightgreen.svg)
+![Framework](https://img.shields.io/badge/framework-XAML-orange.svg)
+
+---
+
+## 📱 O Aplikacji
+
+**Atmel** to aplikacja Windows UWP umożliwiająca zdalne sterowanie Arduino przez połączenie Bluetooth. Aplikacja wykorzystuje bibliotekę **Windows-Remote-Arduino** (Microsoft Maker RemoteWiring) do komunikacji z urządzeniem poprzez moduły Bluetooth Serial (HC-05/HC-06).
+
+### 🎯 Główne Funkcjonalności
+
+- 🔵 **Bluetooth Classic** - Połączenie z Arduino przez HC-05/HC-06
+- 💡 **LED Control** - Zdalne włączanie/wyłączanie LED na pinie 13
+- 📡 **BLE Scanning** - Wyszukiwanie urządzeń Bluetooth Low Energy
+- 🔌 **RFCOMM Server/Client** - Komunikacja peer-to-peer między urządzeniami Windows
+- 📋 **Device Discovery** - Lista dostępnych urządzeń Bluetooth
+
+---
+
+## 🏗️ Architektura Aplikacji
+
+```
+┌─────────────────────────────────────────┐
+│         MainPage.xaml (UI)              │
+│  ┌───────────────────────────────────┐  │
+│  │ [List] [Start] [Led On] [Led Off]│  │
+│  │ [Serial 01] [BT LE 01] [BT LE 02]│  │
+│  │ [BT LE 03 - Server] [Client]     │  │
+│  └───────────────────────────────────┘  │
+└──────────────┬──────────────────────────┘
+               │
+┌──────────────▼──────────────────────────┐
+│      MainPage.xaml.cs (Logic)           │
+│  ┌──────────────────────────────────┐   │
+│  │ • BluetoothSerial                │   │
+│  │ • RemoteDevice (Arduino)         │   │
+│  │ • DeviceWatcher (BLE)            │   │
+│  │ • RFCOMM Client/Server           │   │
+│  └──────────────────────────────────┘   │
+└──────────────┬──────────────────────────┘
+               │
+┌──────────────▼──────────────────────────┐
+│         Supporting Classes               │
+│  ┌──────────────────────────────────┐   │
+│  │ Silnik/ClientRFCOMM.cs           │   │
+│  │ Silnik/ServerRFCOMM.cs           │   │
+│  │ Models/BluetoothLEDeviceInfo..   │   │
+│  │ Serial/DeviceListEntry.cs        │   │
+│  └──────────────────────────────────┘   │
+└──────────────────────────────────────────┘
+```
+
+---
+
+## 🔧 Komponenty Techniczne
+
+### 📂 Struktura Projektu
+
+```
+Atmel/
+├── 📄 MainPage.xaml              # UI - interfejs użytkownika
+├── 📄 MainPage.xaml.cs           # Logika aplikacji
+├── 📄 App.xaml                   # Definicja aplikacji
+├── 📄 App.xaml.cs                # Entry point aplikacji
+│
+├── 📁 Silnik/                    # Bluetooth RFCOMM
+│   ├── ClientRFCOMM.cs           # RFCOMM Client implementation
+│   └── ServerRFCOMM.cs           # RFCOMM Server implementation
+│
+├── 📁 Models/                    # Modele danych
+│   └── BluetoothLEDeviceInfoModel.cs  # Model urządzenia BLE
+│
+├── 📁 Serial/                    # Serial communication
+│   ├── Constants.cs              # Stałe dla komunikacji serial
+│   └── DeviceListEntry.cs        # Entry dla listy urządzeń
+│
+├── 📁 Assets/                    # Zasoby graficzne
+│   ├── Utilities.cs              # Funkcje pomocnicze
+│   ├── *.png                     # Ikony aplikacji
+│   └── ...
+│
+└── 📁 Properties/
+    ├── AssemblyInfo.cs           # Informacje o assembly
+    └── Default.rd.xml            # Runtime directives
+```
+
+---
+
+## 🎮 Interfejs Użytkownika
+
+### Główny Ekran (MainPage.xaml)
+
+```
+┌────────────────────────────────────────────────┐
+│  Aplikacja używa bluetooth i coś robi.        │
+├────────────────────────────────────────────────┤
+│                                                │
+│  [List]  [Start]  [Led On]  [Led Off]        │
+│  [Serial 01]  [BT LE 01]  [BT LE 02]         │
+│                                                │
+│  [BT LE 03 - Server]  [BT LE 03 - Client]    │
+│                                                │
+└────────────────────────────────────────────────┘
+```
+
+### Przyciski i ich Funkcje
+
+| Przycisk | Funkcja | Status |
+|----------|---------|--------|
+| **List** | Lista dostępnych urządzeń Bluetooth | ✅ Działający |
+| **Start** | Nawiązanie połączenia z Arduino (HC-05/"sowaphone") | ✅ Działający |
+| **Led On** | Włączenie LED na pinie 13 Arduino | ✅ Włącza się po Start |
+| **Led Off** | Wyłączenie LED na pinie 13 Arduino | ✅ Włącza się po Led On |
+| **Serial 01** | Test komunikacji Serial (USB) | ⚠️ Częściowy |
+| **BT LE 01** | Skanowanie BLE z DeviceWatcher | ✅ Działający |
+| **BT LE 02** | Skanowanie BLE alternatywne | ✅ Działający |
+| **BT LE 03 - Server** | Uruchomienie RFCOMM Server | ✅ Działający |
+| **BT LE 03 - Client** | Uruchomienie RFCOMM Client | ✅ Działający |
+
+---
+
+## 📦 Zależności (NuGet Packages)
+
+### Microsoft.NETCore.UniversalWindowsPlatform `5.1.0`
+- Podstawowe frameworki UWP
+- APIs Windows Runtime
+
+### Windows-Remote-Arduino `1.4.0`
+- **Microsoft.Maker.RemoteWiring** - Arduino remote control
+- **Microsoft.Maker.Serial** - Serial communication abstractions
+- Biblioteka do zdalnego sterowania Arduino przez różne protokoły
+
+### Built-in UWP APIs
+- **Windows.Devices.Bluetooth** - Bluetooth APIs (Classic + BLE)
+- **Windows.Devices.Enumeration** - Device discovery
+- **Windows.Networking.Sockets** - RFCOMM socket communication
+- **Windows.UI.Xaml** - UI framework
+
+---
+
+## 🚀 Jak Używać
+
+### Krok 1: Konfiguracja Arduino
+
+1. **Podłącz moduł Bluetooth HC-05/HC-06:**
+   ```
+   HC-05  →  Arduino
+   TX     →  RX (pin 0)
+   RX     →  TX (pin 1)
+   VCC    →  5V
+   GND    →  GND
+   ```
+
+2. **Załaduj StandardFirmata:**
+   - File → Examples → Firmata → StandardFirmata
+   - Upload do Arduino
+
+3. **Sparuj Bluetooth:**
+   - Windows Settings → Devices → Bluetooth
+   - Dodaj urządzenie "HC-05" (domyślne PIN: 1234 lub 0000)
+
+### Krok 2: Uruchomienie Aplikacji
+
+1. **Zmień nazwę urządzenia** (jeśli potrzeba):
+   
+   W `MainPage.xaml.cs` linia ~67:
+   ```csharp
+   _bluetooth = new BluetoothSerial("sowaphone"); // lub "HC-05"
+   ```
+
+2. **Build & Deploy:**
+   - Visual Studio → Set as StartUp Project
+   - Platform: x86/x64/ARM
+   - F5 (Debug) lub Ctrl+F5 (Run)
+
+### Krok 3: Test Połączenia
+
+```
+1. Kliknij [List]
+   → W Output window pojawi się lista urządzeń Bluetooth
+   
+2. Kliknij [Start]
+   → Aplikacja łączy się z Arduino
+   → Przyciski [Led On] i [Led Off] stają się aktywne
+   
+3. Kliknij [Led On]
+   → LED na pinie 13 Arduino zapala się 💡
+   
+4. Kliknij [Led Off]
+   → LED gaśnie
+```
+
+---
+
+## 🔌 Kluczowe Klasy i Metody
+
+### MainPage.xaml.cs - Główna Logika
+
+#### Bluetooth Serial Connection
+```csharp
+// Inicjalizacja połączenia
+_bluetooth = new BluetoothSerial("sowaphone");
+_arduino = new RemoteDevice(_bluetooth);
+
+// Event handlers
+_bluetooth.ConnectionEstablished += OnConnectionEstablished;
+_bluetooth.ConnectionLost += _bluetooth_ConnectionLost;
+_bluetooth.ConnectionFailed += _bluetooth_ConnectionFailed;
+
+// Start połączenia
+_bluetooth.begin(0, SerialConfig.SERIAL_8N1);
+```
+
+#### LED Control
+```csharp
+// Włączenie LED (pin 13)
+_arduino.digitalWrite(13, PinState.HIGH);
+
+// Wyłączenie LED
+_arduino.digitalWrite(13, PinState.LOW);
+```
+
+#### BLE Device Scanning
+```csharp
+// Skanowanie urządzeń BLE
+DeviceWatcher deviceWatcher = DeviceInformation.CreateWatcher(
+    aqsAllBluetoothLEDevices,
+    requestedProperties,
+    DeviceInformationKind.AssociationEndpoint
+);
+
+// Event handlers
+deviceWatcher.Added += DeviceWatcher_Added;
+deviceWatcher.Updated += DeviceWatcher_Updated;
+deviceWatcher.Removed += DeviceWatcher_Removed;
+
+// Start skanowania
+deviceWatcher.Start();
+```
+
+---
+
+### ClientRFCOMM.cs - RFCOMM Client
+
+**Funkcja:** Połączenie z RFCOMM Server jako klient
+
+**Kluczowe metody:**
+- `Initialize()` - Wyszukiwanie i połączenie z usługą RFCOMM
+- `SupportsProtection()` - Weryfikacja poziomu szyfrowania
+- `IsCompatibleVersion()` - Sprawdzanie wersji usługi (min. 2.0)
+
+**Protokół:** ObexObjectPush (RFCOMM standard)
+
+---
+
+### ServerRFCOMM.cs - RFCOMM Server
+
+**Funkcja:** Nasłuchiwanie połączeń RFCOMM
+
+**Kluczowe metody:**
+- `Initialize()` - Start serwera RFCOMM
+- `InitializeServiceSdpAttributes()` - Konfiguracja SDP attributes
+- `OnConnectionReceived()` - Handler dla nowych połączeń
+
+**Użycie:** Komunikacja peer-to-peer między urządzeniami Windows
+
+---
+
+### BluetoothLEDeviceInfoModel.cs
+
+**Model danych dla urządzeń BLE:**
+- Device ID
+- Device Name
+- Connection Status
+- Signal Strength (RSSI)
+- Pairing Status
+
+---
+
+## 🎯 Przypadki Użycia
+
+### Use Case 1: Smart Home Control
+Zdalne sterowanie oświetleniem, żaluzjami, lub innymi urządzeniami domowymi podłączonymi do Arduino przez Bluetooth.
+
+### Use Case 2: IoT Monitoring
+Odczyt danych z sensorów (temperatura, wilgotność, ruch) podłączonych do Arduino i wyświetlanie w aplikacji Windows.
+
+### Use Case 3: Robotics Control
+Pilot do sterowania robotem - kontrola motorów DC, serwomechanizmów, czujników dystansu.
+
+### Use Case 4: Educational Platform
+Nauka programowania Arduino i aplikacji UWP w jednym projekcie - idealne dla studentów i hobbystów.
+
+---
+
+## 🐛 Znane Ograniczenia
+
+1. **Hardcoded Device Names**
+   - Nazwa urządzenia Bluetooth ("sowaphone", "HC-05") jest na sztywno w kodzie
+   - **Fix:** UI do wyboru z listy dostępnych urządzeń
+
+2. **Brak UI dla Output**
+   - Lista urządzeń wyświetla się tylko w Debug Output
+   - **Fix:** ListView w UI z dynamiczną listą
+
+3. **Single Connection**
+   - Aplikacja obsługuje jedno urządzenie Arduino na raz
+   - **Fix:** Multi-device support z tab view
+
+4. **Brak Error Handling UI**
+   - Błędy połączenia wyświetlają się tylko w Debug
+   - **Fix:** Toast notifications i error dialogs
+
+5. **UI/UX Przestarzałe**
+   - Interfejs jest bardzo prosty
+   - **Fix:** Modern Fluent Design, animations
+
+---
+
+## 🔮 Plany Rozwoju
+
+### v1.1 - UI Improvements
+- [ ] ListView dla dostępnych urządzeń Bluetooth
+- [ ] Toast notifications dla zdarzeń połączenia
+- [ ] Error dialogs dla użytkownika
+- [ ] Zapisywanie ostatnio używanego urządzenia
+
+### v1.2 - Extended GPIO Control
+- [ ] Kontrola wielu pinów GPIO (nie tylko pin 13)
+- [ ] Sliders dla PWM control
+- [ ] Toggle switches dla digital pins
+- [ ] Analog input reading (A0-A5)
+
+### v2.0 - Sensor Dashboard
+- [ ] Real-time charts dla danych sensorów
+- [ ] Temperature/humidity monitoring
+- [ ] Motion detection alerts
+- [ ] Data logging do pliku
+
+### v3.0 - Advanced Features
+- [ ] File transfer przez RFCOMM
+- [ ] Custom Arduino commands
+- [ ] Multi-device dashboard
+- [ ] Cloud sync (Azure IoT Hub)
+
+---
+
+## 🛠️ Wymagania Systemowe
+
+### Development
+- **OS:** Windows 10 version 1703 (Creators Update) lub nowszy
+- **Visual Studio:** 2017 lub nowszy z UWP workload
+- **SDK:** Windows 10 SDK (10.0.15063.0)
+- **Min Version:** Windows 10 Anniversary Update (10.0.14393.0)
+
+### Runtime
+- **OS:** Windows 10 Anniversary Update (14393) lub nowszy
+- **Bluetooth:** Bluetooth 2.0+ (Classic) lub Bluetooth 4.0+ (BLE)
+- **Permissions:** Bluetooth capability w Package.appxmanifest
+
+### Hardware
+- **Arduino:** Uno, Mega, Nano, lub kompatybilny
+- **Bluetooth Module:** HC-05, HC-06, HM-10, lub kompatybilny
+- **Computer:** PC z Bluetooth adapter (built-in lub USB dongle)
+
+---
+
+## 📝 Package.appxmanifest - Capabilities
+
+Aplikacja wymaga następujących uprawnień:
+
+```xml
+<Capabilities>
+  <Capability Name="internetClient" />
+  <DeviceCapability Name="bluetooth.rfcomm">
+    <Device Id="any">
+      <Function Type="serviceId:00001101-0000-1000-8000-00805F9B34FB" />
+    </Device>
+  </DeviceCapability>
+  <DeviceCapability Name="bluetooth.genericAttributeProfile">
+    <Device Id="any">
+      <Function Type="name:genericAccess" />
+      <Function Type="name:genericAttribute" />
+    </Device>
+  </DeviceCapability>
+</Capabilities>
+```
+
+---
+
+## 🧪 Testing
+
+### Test Scenario 1: LED Control
+1. Uruchom aplikację
+2. Kliknij [Start] → sprawdź czy połączenie nawiązane
+3. Kliknij [Led On] → sprawdź czy LED świeci
+4. Kliknij [Led Off] → sprawdź czy LED zgasł
+
+### Test Scenario 2: BLE Scanning
+1. Uruchom aplikację
+2. Kliknij [BT LE 01] → sprawdź Output dla listy urządzeń
+3. Sprawdź czy aplikacja wykrywa urządzenia BLE w zasięgu
+
+### Test Scenario 3: RFCOMM Communication
+1. Uruchom dwie instancje aplikacji (lub dwa komputery)
+2. Na pierwszym: [BT LE 03 - Server]
+3. Na drugim: [BT LE 03 - Client]
+4. Sprawdź czy połączenie nawiązane (Output window)
+
+---
+
+## 🔗 Powiązane Dokumentacje
+
+- [Główna dokumentacja projektu](../DOCUMENTATION.md)
+- [Microsoft Maker RemoteWiring GitHub](https://github.com/ms-iot/remote-wiring)
+- [UWP Bluetooth APIs](https://docs.microsoft.com/en-us/windows/uwp/devices-sensors/bluetooth)
+- [Arduino Firmata Protocol](https://github.com/firmata/protocol)
+
+---
+
+## 📄 Licencja
+
+Projekt AT93C56Tests (włącznie z aplikacją Atmel) jest dostępny na licencji MIT. Zobacz [LICENSE](../LICENSE) dla szczegółów.
+
+---
+
+## 👨‍💻 Autor
+
+**vadmkp**
+- GitHub: [@vadmkp](https://github.com/vadmkp)
+- Projekt: [AT93C56Tests](https://github.com/vadmkp/AT93C56Tests)
+
+---
+
+## 🏷️ Tags
+
+`#UWP` `#Bluetooth` `#Arduino` `#RemoteWiring` `#CSharp` `#XAML` `#IoT` `#HC05` `#BLE` `#RFCOMM` `#Windows10`
+
+---
+
+*Dokumentacja aplikacji Atmel - część projektu AT93C56Tests*  
+*Ostatnia aktualizacja: 2025-11-11*
