@@ -1,422 +1,358 @@
-# AT93C56
+# AT93C56Tests
 
-Projekt testowy. Nauka GitHub-a.
-***
-## **Headers**
+> **Projekt edukacyjny z 2017 roku** - Nauka Bluetooth communication, Arduino remote control, oraz Windows UWP development.
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-
-
-***
-## **Bold**
-
-**BOLD**
-
-***
-
-## **Italic**
-
-*Italic*
-
-***
-
-## **Bold + Italic**
-
-***Bold & Italic***
-
-***
-
-## **Strikethrough**
-
-~~Strikethrough~~
-
-
-
-***
- 
-## **js** code
-```js
-function areEqual(a, b) {
-	if (a === b) {
-		return false;
-	}
-}
-```
-***
-
-## **c** code
-```c
-/*
-  Blink
-
-  Turns an LED on for one second, then off for one second, repeatedly.
-
-  Most Arduinos have an on-board LED you can control. On the UNO, MEGA and ZERO
-  it is attached to digital pin 13, on MKR1000 on pin 6. LED_BUILTIN is set to
-  the correct LED pin independent of which board is used.
-  If you want to know what pin the on-board LED is connected to on your Arduino
-  model, check the Technical Specs of your board at:
-  https://www.arduino.cc/en/Main/Products
-
-  modified 8 May 2014
-  by Scott Fitzgerald
-  modified 2 Sep 2016
-  by Arturo Guadalupi
-  modified 8 Sep 2016
-  by Colby Newman
-
-  This example code is in the public domain.
-
-  http://www.arduino.cc/en/Tutorial/Blink
-*/
-
-// the setup function runs once when you press reset or power the board
-void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-}
-
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
-}
-```
-
-***
-
-## **python** code
-
-```python
-s = "Python syntax highlighting"
-print s
-```
-
-
-***
- 
-## **JavaScript** code
-```JavaScript
-var arr = [ "one", "two", "three", "four", "five" ];
-var obj = { one: 1, two: 2, three: 3, four: 4, five: 5 };
- 
-jQuery.each( arr, function( i, val ) {
-  $( "#" + val ).text( "Mine is " + val + "." );
- 
-  // Will stop running after "three"
-  return ( val !== "three" );
-});
- 
-jQuery.each( obj, function( i, val ) {
-  $( "#" + i ).append( document.createTextNode( " - " + val ) );
-});
-```
-
-***
-## **csharp** code
-
-```csharp
-    using (var client = new HttpClient())
-    {
-        // Set address of server
-        client.BaseAddress = new Uri("http://localhost:9000/");
-
-        // Clears the RequestHeaders before setting a new one
-        client.DefaultRequestHeaders.Accept.Clear();
-        // Set RequestHeaders to accept only JSON
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    }
-```
-
-***
-
-## **Links**
-
-```
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file LICENCE](../../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links. 
-http://www.example.com or <http://www.example.com> and sometimes 
-example.com (but not on Github, for example).
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-```
-
-[I'm an inline-style link](https://www.google.com)
-
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
-
-[I'm a relative reference to a repository file LICENCE](../../blob/master/LICENSE)
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links. 
-http://www.example.com or <http://www.example.com> and sometimes 
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-
-
-***
-## **Images**
-Markdown: ![Benjamin Bannekat](http://octodex.github.com/images/foundingfather_v2.png).
-
-
-
-```
-Here's our logo (hover to see the title text):
-
-Inline-style: 
-![Logo PNG not found ](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon484.png "Logo Title Text 1")
-
-Reference-style: 
-![To powinno byc logo][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-
-```
-
-Here's our logo (hover to see the title text):
-
-Inline-style: 
-![Logo PNG not found ](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon484.png "Logo Title Text 1")
-
-Reference-style: 
-![To powinno byc logo][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
-
-Link with image:
-[![Logo PNG not found](https://archirama.smcloud.net/s/photos/t/2663/google_562.jpg "Google's Homepage")](https://www.google.com)
-
-*Unfortunetly can not be open in new tab. Markdown not suport it.*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-***
-## **Blockquotes**
-
-> "In a few moments he was barefoot, his stockings folded in his pockets and his
-  canvas shoes dangling by their knotted laces over his shoulders and, picking a
-  pointed salt-eaten stick out of the jetsam among the rocks, he clambered down
-  the slope of the breakwater."
-
-***
-## **Lists**
-
-* Milk
-* Eggs
-* Salmon
-* Butter
-
-1. Crack three eggs over a bowl
-2. Pour a gallon of milk into the bowl
-3. Rub the salmon vigorously with butter
-4. Drop the salmon into the egg-milk bowl
-
-
-* Tintin
-  * A reporter
-  * Has poofy orange hair
-  * Friends with the world's most awesome dog
-* Haddock
-  * A sea captain
-  * Has a fantastic beard
-  * Loves whiskey
-    * Possibly also scotch?
-
-***
-
-1. Crack three eggs over a bowl.
-
-	Now, you're going to want to crack the eggs in such a way that you don't make a mess.
-
-	If you _do_ make a mess, use a towel to clean it up!
-
-2. Pour a gallon of milk into the bowl.
-
-	Basically, take the same guidance as above: don't be messy, but if you are, clean it up!
-
-3. Rub the salmon vigorously with butter.
-
-	By "vigorous," we mean a strictly vertical motion. Julia Child once quipped:
-   > Up and down and all around, that's how butter on salmon goes.
-4. Drop the salmon into the egg-milk bowl.
-
-   Here are some techniques on salmon-dropping:
-    * Make sure no trout or children are present
-    * Use both hands
-    * Always have a towel nearby in case of messes
-
-***
-# **Paragraphs**
-
-Do I contradict myself?
-
-Very well then I contradict myself,
-
-(I am large, I contain multitudes.)
-
-***
-
-## **Syntax Highlighting**
-
-Inline `code` has `back-ticks around` it.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-***
-
-## **Tables**
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the 
-raw Markdown line up prettily. You can also use inline Markdown.
-
-Markdown | Less | Pretty
---- | :---: | ---:
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
-
-
-
-
-***
-
-## **Inline HTML**
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
-***
-
-## **Horizontal Rule**
-
-Three or more...
-
-3 * Ninus
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Windows%20UWP-brightgreen.svg)]()
+[![Arduino](https://img.shields.io/badge/Arduino-Compatible-00979D.svg)]()
 
 ---
 
-3 * Hyphens
+## 📖 O Projekcie
 
-***
+**AT93C56Tests** to eksperymentalny projekt łączący świat **Windows UWP** z **Arduino** przez **Bluetooth**. Aplikacja pozwala na zdalne sterowanie urządzeniem Arduino z komputera Windows, wykorzystując moduły Bluetooth HC-05 oraz Microsoft Maker RemoteWiring library.
 
-3 * Asterisks
+Projekt powstał jako platforma do nauki:
+- 🔵 **Bluetooth programming** (BLE + Classic RFCOMM)
+- 🤖 **Arduino remote control** przez Bluetooth Serial
+- 💻 **Windows UWP development** z XAML i C#
+- 📝 **GitHub workflow** i zarządzanie repozytorium
 
-___
+---
 
-3 * Underscores
+## ✨ Główne Funkcje
 
-***
+### 🎮 Zdalne Sterowanie Arduino
+- **ON/OFF LED** - Włączanie/wyłączanie LED na pinie 13 Arduino z aplikacji Windows
+- **digitalWrite** - Zdalna kontrola pinów GPIO przez Bluetooth
+- **Real-time communication** - Natychmiastowa reakcja urządzenia
 
-## **Line Breaks**
+### 📡 Bluetooth Integration
+- **Bluetooth Classic** - Komunikacja przez HC-05/HC-06 moduły
+- **Bluetooth Low Energy (BLE)** - Skanowanie i połączenia z urządzeniami BLE
+- **RFCOMM Client/Server** - Peer-to-peer komunikacja między urządzeniami Windows
+- **Device Discovery** - Automatyczne wykrywanie urządzeń w zasięgu
 
-Here's a line for us to start with.
+### 🛠️ Biblioteki dla Chipów Pamięci
+Projekt zawiera szkielety bibliotek dla popularnych chipów pamięci:
+- **AT93C56** - 2Kb Microwire Serial EEPROM
+- **24LC512** - 512Kb I2C Serial EEPROM  
+- **23LC1024** - 1Mb SPI Serial RAM
 
-This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
+*(Uwaga: Biblioteki nie są zaimplementowane - tylko struktura projektów)*
 
-This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
+---
 
-***
+## 🏗️ Architektura
 
-## **YouTube Videos**
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Windows 10 Computer                      │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │           Atmel UWP Application (C# + XAML)           │  │
+│  │  ┌─────────────────────────────────────────────────┐  │  │
+│  │  │  MainPage.xaml - User Interface                 │  │  │
+│  │  │  [List] [Start] [ON] [OFF] [BLE Scan]          │  │  │
+│  │  └─────────────────────────────────────────────────┘  │  │
+│  │                        │                               │  │
+│  │  ┌─────────────────────▼─────────────────────────┐    │  │
+│  │  │  BluetoothSerial ("HC-05" / "sowaphone")      │    │  │
+│  │  │  Microsoft.Maker.RemoteWiring                 │    │  │
+│  │  └─────────────────────┬─────────────────────────┘    │  │
+│  └────────────────────────┼─────────────────────────────┘  │
+└─────────────────────────┼─────────────────────────────────┘
+                          │ Bluetooth Connection
+                          │ (Serial Protocol)
+┌─────────────────────────▼─────────────────────────────────┐
+│                     Arduino Board                          │
+│  ┌───────────────────────────────────────────────────┐    │
+│  │  Pin 13 - LED (digitalWrite HIGH/LOW)             │    │
+│  │  Bluetooth Module HC-05/HC-06                     │    │
+│  │  Arduino Firmata (or Custom Sketch)               │    │
+│  └───────────────────────────────────────────────────┘    │
+└────────────────────────────────────────────────────────────┘
+```
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=3zoy1deTVu0
-" target="_blank"><img src="http://img.youtube.com/vi/3zoy1deTVu0/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
+---
 
-**OR**
+## 🚀 Quick Start
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/3zoy1deTVu0/0.jpg)](http://www.youtube.com/watch?v=3zoy1deTVu0)
+### Wymagania
+
+- **Windows 10** lub nowszy
+- **Visual Studio 2017+** z workloadami:
+  - Universal Windows Platform development
+  - .NET desktop development
+- **Arduino** (Uno, Mega, Nano, itp.)
+- **Moduł Bluetooth** HC-05 lub HC-06
+- **Kabel USB** do programowania Arduino
+
+### Instalacja
+
+1. **Sklonuj repozytorium:**
+   ```bash
+   git clone https://github.com/vadmkp/AT93C56Tests.git
+   cd AT93C56Tests
+   ```
+
+2. **Otwórz projekt w Visual Studio:**
+   ```bash
+   AT93C56.sln
+   ```
+
+3. **Skonfiguruj Arduino:**
+   - Podłącz moduł Bluetooth HC-05 do Arduino (TX→RX, RX→TX, VCC→5V, GND→GND)
+   - Załaduj sketch obsługujący RemoteWiring (np. StandardFirmata)
+   - Sparuj moduł Bluetooth z komputerem Windows
+
+4. **Zmień nazwę urządzenia w kodzie:**
+   
+   W pliku `Atmel/MainPage.xaml.cs` (linia ~67):
+   ```csharp
+   _bluetooth = new BluetoothSerial("TWOJA_NAZWA_BT");
+   ```
+
+5. **Build & Run:**
+   - Ustaw projekt **Atmel** jako StartUp Project
+   - Wybierz platformę (x86/x64/ARM)
+   - Naciśnij F5 (Debug) lub Ctrl+F5 (Run)
+
+### Użycie
+
+1. Uruchom aplikację UWP
+2. Kliknij **"Start"** - nawiąże połączenie z Arduino przez Bluetooth
+3. Kliknij **"ON"** - LED na pinie 13 Arduino zapali się 💡
+4. Kliknij **"OFF"** - LED zgaśnie
+5. Kliknij **"List"** - wyświetli dostępne urządzenia Bluetooth (w Output window)
+
+---
+
+## 📂 Struktura Projektu
+
+```
+AT93C56Tests/
+├── 📱 Atmel/                              # Główna aplikacja UWP
+│   ├── MainPage.xaml                      # UI aplikacji
+│   ├── MainPage.xaml.cs                   # Logika - Bluetooth + Arduino control
+│   ├── Silnik/
+│   │   ├── ClientRFCOMM.cs                # Bluetooth RFCOMM Client
+│   │   └── ServerRFCOMM.cs                # Bluetooth RFCOMM Server
+│   ├── Models/
+│   │   └── BluetoothLEDeviceInfoModel.cs  # Model danych BLE device
+│   └── Assets/                            # Obrazy i zasoby
+│
+├── 🤖 Arduino01/                          # Projekt Arduino
+│   └── Arduino01.ino                      # Pusty sketch (do uzupełnienia)
+│
+├── 📚 Atmel.AT93C56/                      # Biblioteka dla AT93C56 EEPROM
+├── 📚 Atmel.Microchip24LC512/             # Biblioteka dla 24LC512 EEPROM
+├── 📚 Atmel.Microchip23LC1024/            # Biblioteka dla 23LC1024 RAM
+│
+├── AT93C56.sln                            # Visual Studio Solution
+├── README.md                              # Ten plik
+├── DOCUMENTATION.md                       # Szczegółowa dokumentacja techniczna
+└── LICENSE                                # Licencja projektu
+```
+
+---
+
+## 🔧 Technologie
+
+### Frontend (UWP Application)
+- **C# 7.0+**
+- **XAML** - UI markup language
+- **Universal Windows Platform (UWP)** APIs
+- **.NET Framework** / UWP Runtime
+
+### Libraries & Dependencies
+- **Microsoft.Maker.RemoteWiring** - Arduino remote control library
+- **Microsoft.Maker.Serial** - Serial communication abstractions
+- **Windows.Devices.Bluetooth** - Bluetooth APIs (BLE + Classic)
+- **Windows.Devices.Enumeration** - Device discovery APIs
+- **Windows.Networking.Sockets** - RFCOMM socket communication
+
+### Hardware
+- **Arduino** (Uno/Mega/Nano)
+- **HC-05 / HC-06** Bluetooth Serial Module
+- **LEDs, sensors, actuators** (opcjonalnie)
+
+---
+
+## 📸 Screenshots
+
+### Główna Aplikacja
+```
+┌──────────────────────────────────────────┐
+│  AT93C56Tests - Arduino Remote Control  │
+├──────────────────────────────────────────┤
+│                                          │
+│  [List]  - List Bluetooth Devices       │
+│  [Start] - Connect to Arduino           │
+│                                          │
+│  ┌────────────────────────────────┐     │
+│  │  LED Control                   │     │
+│  │  [ON]  [OFF]                   │     │
+│  └────────────────────────────────┘     │
+│                                          │
+│  ┌────────────────────────────────┐     │
+│  │  BLE Testing                   │     │
+│  │  [BLE Scan 1]  [BLE Scan 2]    │     │
+│  │  [RFCOMM Server] [RFCOMM Client] │  │
+│  └────────────────────────────────┘     │
+│                                          │
+└──────────────────────────────────────────┘
+```
+
+---
+
+## 🎯 Use Cases
+
+### 1. Home Automation
+Zdalne sterowanie urządzeniami domowymi (światła, żaluzje, otwieranie drzwi) przez Bluetooth z aplikacji Windows.
+
+### 2. IoT Prototyping
+Szybkie prototypowanie projektów IoT - kontrola sensorów i aktuatorów bez pisania skomplikowanego kodu Arduino.
+
+### 3. Educational Projects
+Nauka komunikacji Bluetooth, programowania Arduino, oraz tworzenia aplikacji UWP w jednym projekcie.
+
+### 4. Robotics Control
+Pilot do sterowania robotem - kontrola motorów, serwomechanizmów, odczyt sensorów dystansu.
+
+---
+
+## 🐛 Znane Ograniczenia
+
+- ⚠️ **Hardcoded device names** - Nazwa urządzenia Bluetooth jest wpisana na sztywno w kodzie
+- ⚠️ **Brak UI dla listy urządzeń** - Lista urządzeń wyświetla się tylko w Debug Output
+- ⚠️ **Arduino sketch pusty** - Wymaga załadowania Firmata lub custom protocol
+- ⚠️ **Biblioteki EEPROM nie zaimplementowane** - Tylko szkielety projektów
+- ⚠️ **Single connection** - Aplikacja obsługuje jedno urządzenie na raz
+- ⚠️ **Windows only** - Projekt jest UWP, działa tylko na Windows 10+
+
+---
+
+## 🔮 Roadmap & Możliwe Rozszerzenia
+
+### v1.1 (Near Future)
+- [ ] UI do wyboru urządzenia Bluetooth z listy
+- [ ] Zapisywanie ostatnio używanego urządzenia
+- [ ] Toast notifications dla zdarzeń Bluetooth
+- [ ] Arduino StandardFirmata sketch w projekcie
+
+### v2.0 (Future)
+- [ ] Obsługa wielu pinów GPIO (sliders, switches)
+- [ ] PWM control dla LED/motorów
+- [ ] Odczyt danych z sensorów (temperatura, wilgotność)
+- [ ] Charts/graphs dla danych real-time
+- [ ] Implementacja biblioteki 24LC512 (I2C EEPROM)
+
+### v3.0 (Long-term)
+- [ ] Migracja do WinUI 3 / .NET MAUI
+- [ ] Cross-platform support (Android/iOS)
+- [ ] Cloud integration (Azure IoT Hub)
+- [ ] Voice control (Cortana / Windows Speech)
+- [ ] Machine learning na danych sensorów
+
+---
+
+## 📚 Dokumentacja
+
+### Szczegółowa Dokumentacja
+Przeczytaj [DOCUMENTATION.md](DOCUMENTATION.md) dla:
+- Szczegółowej architektury systemu
+- Opisu wszystkich klas i metod
+- Przykładów kodu
+- Troubleshooting guide
+- FAQ
+
+### Przydatne Linki
+- [Microsoft Maker RemoteWiring Documentation](https://github.com/ms-iot/remote-wiring)
+- [UWP Bluetooth APIs](https://docs.microsoft.com/en-us/windows/uwp/devices-sensors/bluetooth)
+- [Arduino Firmata Protocol](https://github.com/firmata/protocol)
+- [HC-05 Bluetooth Module Datasheet](https://www.electronicwings.com/sensors-modules/hc-05-bluetooth-module)
+
+---
+
+## 🤝 Contributing
+
+Projekt jest otwarty na wkład! Jeśli chcesz pomóc:
+
+1. **Fork** repozytorium
+2. Stwórz **feature branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit** zmiany (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** do brancha (`git push origin feature/AmazingFeature`)
+5. Otwórz **Pull Request**
+
+### Pomysły na Wkład
+- 🐛 Zgłaszanie bugów i issues
+- 💡 Propozycje nowych funkcji
+- 📝 Poprawki dokumentacji
+- 🧪 Dodawanie testów jednostkowych
+- 🎨 Ulepszenia UI/UX
+- 🔧 Implementacja bibliotek EEPROM
+
+---
+
+## 📜 Licencja
+
+Projekt udostępniony na licencji MIT. Zobacz plik [LICENSE](LICENSE) dla szczegółów.
+
+```
+MIT License
+
+Copyright (c) 2017-2025 vadmkp
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
+```
+
+---
+
+## 👨‍💻 Autor
+
+**vadmkp**
+- GitHub: [@vadmkp](https://github.com/vadmkp)
+- Repozytorium: [AT93C56Tests](https://github.com/vadmkp/AT93C56Tests)
+
+---
+
+## 🏷️ Tags
+
+`#Bluetooth` `#Arduino` `#UWP` `#IoT` `#RemoteWiring` `#CSharp` `#XAML` `#Windows10` `#HC05` `#BLE` `#RFCOMM` `#Firmata` `#MakerMovement` `#EmbeddedSystems` `#Learning`
+
+---
+
+## ⭐ Star History
+
+Jeśli projekt Ci się podoba, zostaw gwiazdkę! ⭐
+
+[![Star History Chart](https://api.star-history.com/svg?repos=vadmkp/AT93C56Tests&type=Date)](https://github.com/vadmkp/AT93C56Tests)
+
+---
+
+## 📊 Project Status
+
+| Komponent | Status | Uwagi |
+|-----------|--------|-------|
+| UWP Application | ✅ Działająca | Podstawowe funkcje zaimplementowane |
+| Bluetooth Serial | ✅ Działający | HC-05 support |
+| BLE Scanning | ✅ Działający | Device discovery |
+| RFCOMM Client/Server | ⚠️ Częściowy | Brak data transfer |
+| Arduino Sketch | ❌ Pusty | Wymaga Firmata |
+| AT93C56 Library | ❌ Nie rozpoczęte | Tylko szkielet |
+| 24LC512 Library | ❌ Nie rozpoczęte | Tylko szkielet |
+| 23LC1024 Library | ❌ Nie rozpoczęte | Tylko szkielet |
+| Unit Tests | ❌ Brak | Do zaimplementowania |
+
+**Ostatnia aktualizacja:** 2025-11-11
+
+---
+
+<p align="center">
+  <sub>Zbudowane z ❤️ dla społeczności Maker i IoT</sub>
+</p>
+
+<p align="center">
+  <sub>Projekt edukacyjny - Learning by Doing 🚀</sub>
+</p>
