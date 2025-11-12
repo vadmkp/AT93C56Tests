@@ -107,7 +107,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Atmel_TemporaryKey.pfx" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>

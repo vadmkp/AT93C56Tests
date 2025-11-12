@@ -5,11 +5,7 @@ VisualStudioVersion = 17.14.36705.20 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atmel", "Atmel\Atmel.csproj", "{173D4012-013D-43EB-82B1-BC78153E717A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arduino01", "Arduino01\Arduino01.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ATMEL Solutions", "ATMEL Solutions", "{F0CE3A52-BA3B-41EC-92E0-F0EEE64FC4BB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arduino Solutions", "Arduino Solutions", "{28129BE4-64DD-4AA0-A2E1-82D23F8EF977}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D492A394-235F-4EBF-89B9-64258BEBAE36}"
 	ProjectSection(SolutionItems) = preProject
@@ -50,23 +46,12 @@ Global
 		{173D4012-013D-43EB-82B1-BC78153E717A}.Release|x86.ActiveCfg = Release|x86
 		{173D4012-013D-43EB-82B1-BC78153E717A}.Release|x86.Build.0 = Release|x86
 		{173D4012-013D-43EB-82B1-BC78153E717A}.Release|x86.Deploy.0 = Release|x86
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|ARM.ActiveCfg = Debug|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x64.ActiveCfg = Debug|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.ActiveCfg = Debug|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Debug|x86.Build.0 = Debug|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|Any CPU.ActiveCfg = Release|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|ARM.ActiveCfg = Release|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x64.ActiveCfg = Release|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{173D4012-013D-43EB-82B1-BC78153E717A} = {F0CE3A52-BA3B-41EC-92E0-F0EEE64FC4BB}
-		{C5F80730-F44F-4478-BDAE-6634EFC2CA88} = {28129BE4-64DD-4AA0-A2E1-82D23F8EF977}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5B37302-7727-4D92-8FCE-9498223888F0}
