@@ -5,6 +5,7 @@
     xmlns:local="using:Atmel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="1360" Height="600"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -14,9 +15,12 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="629*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" TextWrapping="WrapWholeWords">
-                Aplkacja uzywa bluetooth i cos robi.
-        </TextBlock>
+        <TextBlock Grid.Row="0" 
+                   FontSize="24"
+                   TextWrapping="WrapWholeWords" 
+                   Text="Aplkacja do zdalnego sterowania urządzeniami Arduino przez Bluetooth." />
+
+
         <StackPanel Orientation="Horizontal" Grid.Row="1">
 
             <Button Name="btnList" 
