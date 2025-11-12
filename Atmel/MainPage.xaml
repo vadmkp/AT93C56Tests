@@ -5,74 +5,159 @@
     xmlns:local="using:Atmel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="1360" Height="600"
+    Width="1360" Height="768"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Style x:Key="BtnMaly" TargetType="Button">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style x:Key="BtnDuzy" TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="629*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" 
-                   FontSize="24"
-                   TextWrapping="WrapWholeWords" 
-                   Text="Aplkacja do zdalnego sterowania urządzeniami Arduino przez Bluetooth." />
 
-
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-
-            <Button Name="btnList" 
-                    Click="btnList_Click" 
-                    Content="List" 
-                    Style="{StaticResource BtnMaly}"/>
-            <Button Name="btnStart"
-                    Click="btnStart_Click" 
-                    Content="Start" 
-                    Style="{StaticResource BtnMaly}"/>
-            <Button Name="btnOn"
-                    Click="btnOn_Click" 
-                    Content="Led On" 
-                    IsEnabled="False" 
-                    Style="{StaticResource BtnMaly}"/>
-
-            <Button Name="btnOff" 
-                    Click="btnOff_Click"
-                    Content="Led Off" 
-                    IsEnabled="False" 
-                    Style="{StaticResource BtnMaly}"/>
-
-            <Button Name="btnSerial01" 
-                    Click="btnSerial01_Click"
-                    Content="Serial 01" 
-                    IsEnabled="True" 
-                    Style="{StaticResource BtnMaly}"/>
-
-            <Button Name="btnBlueLE01" 
-                    Click="btnBlueLE01_Click"
-                    Content="BT LE 01" 
-                    IsEnabled="True"
-                    Style="{StaticResource BtnMaly}"/>
-
-            <Button Name="btnBlueLE02" 
-                    Click="btnBlueLE02_Click"
-                    Content="BT LE 02" 
-                    IsEnabled="True"
-                    Style="{StaticResource BtnMaly}"/>
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock FontSize="28" FontWeight="Bold" Text="{Binding Title}"/>
+            <TextBlock FontSize="14" Foreground="Gray" 
+                       Text="MVVM Pattern with Prism Principles"/>
         </StackPanel>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Name="BtnBlueLE03"
-                    Click="BtnBlueLE03_Click"
-                    Content="BT LE 03  - Server" 
-                    IsEnabled="True" 
-                    Style="{StaticResource BtnDuzy}" />
-            <Button Name="BtnBlueLE04"
-                    Click="BtnBlueLE04_Click"
-                    Content="BT LE 03  - Client" 
-                    IsEnabled="True" 
-                    Style="{StaticResource BtnDuzy}" />
+
+        <!-- Status Bar -->
+        <Border Grid.Row="1" Background="#F0F0F0" Padding="10" Margin="0,0,0,10" CornerRadius="5">
+            <StackPanel>
+                <TextBlock FontSize="14" FontWeight="SemiBold" Text="Status"/>
+                <TextBlock FontSize="12" Text="{Binding StatusMessage}" TextWrapping="Wrap"/>
+                <ProgressBar IsIndeterminate="True" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}}" 
+                             Margin="0,5,0,0" Height="4"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Device Selection -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,15">
+            <TextBlock FontSize="16" FontWeight="SemiBold" Text="Device Management" Margin="0,0,0,10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <ComboBox Grid.Column="0" 
+                          ItemsSource="{Binding Devices}"
+                          SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
+                          DisplayMemberPath="Name"
+                          PlaceholderText="Select a device..."
+                          Margin="0,0,10,0"/>
+                
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="Load Devices" 
+                            Command="{Binding LoadDevicesCommand}"
+                            Style="{StaticResource BtnMaly}"/>
+                    <Button Content="Connect" 
+                            Command="{Binding ConnectToDeviceCommand}"
+                            Style="{StaticResource BtnMaly}"/>
+                    <Button Content="Disconnect" 
+                            Command="{Binding DisconnectCommand}"
+                            Style="{StaticResource BtnMaly}"/>
+                </StackPanel>
+            </Grid>
         </StackPanel>
+
+        <!-- LED Control -->
+        <StackPanel Grid.Row="3" Margin="0,0,0,15">
+            <TextBlock FontSize="16" FontWeight="SemiBold" Text="Arduino LED Control" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="LED ON" 
+                        Command="{Binding TurnLedOnCommand}"
+                        Background="Green"
+                        Foreground="White"
+                        Style="{StaticResource BtnMaly}"/>
+                <Button Content="LED OFF" 
+                        Command="{Binding TurnLedOffCommand}"
+                        Background="Red"
+                        Foreground="White"
+                        Style="{StaticResource BtnMaly}"/>
+                <Border Width="60" Height="60" CornerRadius="30" 
+                        Background="{Binding IsLedOn, Converter={StaticResource LedStatusConverter}}"
+                        BorderBrush="Gray" BorderThickness="2" Margin="20,5,5,5">
+                    <TextBlock Text="{Binding IsLedOn, Converter={StaticResource LedTextConverter}}"
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Foreground="White" FontWeight="Bold"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Advanced Features -->
+        <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock FontSize="16" FontWeight="SemiBold" Text="Advanced Features" Margin="0,0,0,10"/>
+                
+                <!-- Discovery -->
+                <StackPanel Margin="0,0,0,15">
+                    <TextBlock Text="Bluetooth LE Discovery" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Button Content="Start Device Discovery" 
+                            Command="{Binding StartDeviceDiscoveryCommand}"
+                            Style="{StaticResource BtnDuzy}"/>
+                </StackPanel>
+
+                <!-- RFCOMM -->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Margin="0,0,20,0">
+                        <TextBlock Text="RFCOMM Server" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <Button Content="Start Server" 
+                                Command="{Binding StartServerCommand}"
+                                Style="{StaticResource BtnDuzy}"/>
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <TextBlock Text="RFCOMM Client" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                        <Button Content="Start Client" 
+                                Command="{Binding StartClientCommand}"
+                                Style="{StaticResource BtnDuzy}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Device List -->
+                <StackPanel Margin="0,20,0,0">
+                    <TextBlock Text="Discovered Devices" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                    <ListView ItemsSource="{Binding Devices}" 
+                              SelectedItem="{Binding SelectedDevice, Mode=TwoWay}"
+                              Height="200"
+                              BorderBrush="Gray"
+                              BorderThickness="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="5">
+                                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold"/>
+                                    <TextBlock Text="{Binding Id}" FontSize="10" Foreground="Gray"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Paired: " FontSize="10"/>
+                                        <TextBlock Text="{Binding IsPaired}" FontSize="10" Foreground="Green"/>
+                                        <TextBlock Text=" | Enabled: " FontSize="10" Margin="10,0,0,0"/>
+                                        <TextBlock Text="{Binding IsEnabled}" FontSize="10" Foreground="Blue"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
